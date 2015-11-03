@@ -7,7 +7,7 @@ from django.contrib import admin
 from django.db import models
 from django import forms
 from django.utils.encoding import force_unicode
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from mptt.models import MPTTModel
 from mptt.fields import TreeForeignKey
@@ -26,7 +26,7 @@ class CategoryManager(models.Manager):
         """
         Only categories that are active
         """
-        return self.get_query_set().filter(active=True)
+        return self.get_queryset().filter(active=True)
 
 
 class CategoryBase(MPTTModel):
